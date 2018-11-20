@@ -1,0 +1,24 @@
+{
+    "name": "conflict-network/common-traits",
+    "description": "Common traits used throughout the Conflict Networks network-layer source code.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jack Noordhuis",
+            "email": "daswaggamer@gmail.com"
+        }
+    ],
+    "require": {
+        "conflict-network/common-contracts": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ConflictNetwork\\Common\\Traits": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
