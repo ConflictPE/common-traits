@@ -24,12 +24,24 @@ declare(strict_types=1);
 
 namespace ConflictNetwork\Common\Traits\Game;
 
+use ConflictNetwork\Common\Contracts\Game\GameId as IGameId;
 use ConflictNetwork\Common\Traits\Shared\SluggableId;
 
 /**
  * Provides a base implementation for the game id contract.
  */
 trait GameId {
-	use SluggableId;
+	use SluggableId {
+		SluggableId::getBaseContract as getBaseSluggableTraitContract; //prevent any collision with child classes
+	}
+
+	/**
+	 * Get the base contract for use in comparison checks.
+	 *
+	 * @return string
+	 */
+	public function getBaseContract() : string {
+		return IGameId::class;
+	}
 
 }

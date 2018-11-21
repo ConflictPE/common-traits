@@ -84,7 +84,18 @@ trait SluggableId {
 	 * @return bool
 	 */
 	public function equals(ISluggableId $id) {
-		return ($id instanceof $this) and $id === $this;
+		return is_a($id, $this->getBaseContract()) and //make sure the id is of the correct type
+			(($id->hasValidInternalId() and $this->hasValidInternalId() and $id->getInternalId() === $this->internalId) or //try and check the internal ids first if available
+			$id->getHashId() === $this->hashId); //chance of collision is basically non-existent due to our algorithm so this comparison is enough if it gets this far.
+	}
+
+	/**
+	 * Get the base contract for use in comparison checks.
+	 *
+	 * @return string
+	 */
+	public function getBaseContract() : string {
+		return ISluggableId::class;
 	}
 
 }

@@ -24,12 +24,24 @@ declare(strict_types=1);
 
 namespace ConflictNetwork\Common\Traits\Server;
 
+use ConflictNetwork\Common\Contracts\Server\ServerId as IServerId;
 use ConflictNetwork\Common\Traits\Shared\SluggableId;
 
 /**
  * Provides a base implementation for the server id contract.
  */
 trait ServerId {
-	use SluggableId;
+	use SluggableId {
+		SluggableId::getBaseContract as getBaseSluggableTraitContract; //prevent any collision with child classes
+	}
+
+	/**
+	 * Get the base contract for use in comparison checks.
+	 *
+	 * @return string
+	 */
+	public function getBaseContract() : string {
+		return IServerId::class;
+	}
 
 }

@@ -24,12 +24,24 @@ declare(strict_types=1);
 
 namespace ConflictNetwork\Common\Traits\Player;
 
+use ConflictNetwork\Common\Contracts\Player\Player as IPlayer;
 use ConflictNetwork\Common\Traits\Shared\SluggableId;
 
 /**
  * Provides a base implementation for the player id contract.
  */
 trait PlayerId {
-	use SluggableId;
+	use SluggableId {
+		SluggableId::getBaseContract as getBaseSluggableTraitContract; //prevent any collision with child classes
+	}
+
+	/**
+	 * Get the base contract for use in comparison checks.
+	 *
+	 * @return string
+	 */
+	public function getBaseContract() : string {
+		return IPlayer::class;
+	}
 
 }
