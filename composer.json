@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "conflict-network/common-contracts": "*"
+        "conflict-network/common-contracts": "1.0.*"
     },
     "autoload": {
         "psr-4": {
