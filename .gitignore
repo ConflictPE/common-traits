@@ -1,0 +1,4 @@
+/vendor
+
+# we ignore composer.lock on purpose for the subtrees
+composer.lock
