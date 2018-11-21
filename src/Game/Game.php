@@ -52,7 +52,7 @@ trait Game {
 	 * @param int $online
 	 * @param int $max
 	 */
-	protected function initGame(GameId $id, GameType $type, int $online, int $max) {
+	protected function initialiseGame(GameId $id, GameType $type, int $online, int $max) {
 		$this->id = $id;
 		$this->type = $type;
 		$this->online = $online;

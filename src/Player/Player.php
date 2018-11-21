@@ -48,7 +48,7 @@ trait Player {
 	 * @param string $lastAddress
 	 * @param string $lastServerId
 	 */
-	protected function initPlayer(PlayerId $id, string $lastAddress, string $lastServerId) {
+	protected function initialisePlayer(PlayerId $id, string $lastAddress, string $lastServerId) {
 		$this->id = $id;
 		$this->lastAddress = $lastAddress;
 		$this->lastServerId = $lastServerId;
