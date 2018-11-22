@@ -9,6 +9,7 @@
         }
     ],
     "require": {
+        "php": "^7.1",
         "conflict-network/common-contracts": "1.0.*"
     },
     "autoload": {
