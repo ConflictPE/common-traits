@@ -31,9 +31,7 @@ use ConflictNetwork\Common\Traits\Shared\SluggableId;
  * Provides a base implementation for the player id contract.
  */
 trait PlayerId {
-	use SluggableId {
-		SluggableId::getBaseContract as getBaseSluggableTraitContract; //prevent any collision with child classes
-	}
+	use SluggableId;
 
 	/**
 	 * Get the base contract for use in comparison checks.
