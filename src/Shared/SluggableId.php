@@ -94,8 +94,6 @@ trait SluggableId {
 	 *
 	 * @return string
 	 */
-	public function getBaseContract() : string {
-		return ISluggableId::class;
-	}
+	abstract public function getBaseContract() : string;
 
 }
